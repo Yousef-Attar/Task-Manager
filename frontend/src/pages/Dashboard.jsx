@@ -9,11 +9,11 @@ export default function Dashboard({ session }) {
   const [tasks, setTasks] = useState([]);
   const [users, setUsers] = useState([]);
   const [statusFilter, setStatusFilter] = useState("");
+  const [editingTask, setEditingTask] = useState(null);
   const token = session.access_token;
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-  // Fetch tasks
   const fetchTasks = async () => {
     const { data } = await axios.get(`${API_BASE}/tasks`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -22,7 +22,6 @@ export default function Dashboard({ session }) {
     setTasks(data);
   };
 
-  // Fetch users for assignment
   const fetchUsers = async () => {
     const { data } = await axios.get(`${API_BASE}/users`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -38,6 +37,7 @@ export default function Dashboard({ session }) {
   return (
     <div>
       <Header session={session} />
+
       <div className="filter-bar">
         <label>Status:</label>
         <select onChange={(e) => setStatusFilter(e.target.value)}>
@@ -48,8 +48,20 @@ export default function Dashboard({ session }) {
         </select>
       </div>
 
-      <TaskForm fetchTasks={fetchTasks} users={users} token={token} />
-      <TaskList tasks={tasks} fetchTasks={fetchTasks} token={token} />
+      <TaskForm
+        fetchTasks={fetchTasks}
+        users={users}
+        token={token}
+        editingTask={editingTask}
+        setEditingTask={setEditingTask}
+      />
+
+      <TaskList
+        tasks={tasks}
+        fetchTasks={fetchTasks}
+        token={token}
+        setEditingTask={setEditingTask}
+      />
     </div>
   );
 }

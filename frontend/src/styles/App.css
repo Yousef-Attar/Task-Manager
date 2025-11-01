@@ -1,53 +1,24 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
-  margin: 0;
-  padding: 0;
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.header {
+.task-buttons button {
   background: #007bff;
   color: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header button {
-  background: white;
-  color: #007bff;
   border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 6px;
+  padding: 6px 10px;
   cursor: pointer;
 }
 
-.filter-bar {
-  margin: 20px;
-  display: flex;
-  gap: 10px;
+.task-buttons button:hover {
+  background: #0056b3;
 }
 
-.task-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px;
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.task-form input,
-.task-form select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.task-form button {
-  background: #007bff;
+.cancel-btn {
+  background: #dc3545;
   color: white;
   border: none;
   border-radius: 8px;
@@ -55,15 +26,6 @@ body {
   cursor: pointer;
 }
 
-.task-list {
-  display: grid;
-  gap: 15px;
-  margin: 20px;
-}
-
-.task-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
+.cancel-btn:hover {
+  background: #a71d2a;
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import "../styles/App.css";
 
-export default function TaskList({ tasks, fetchTasks, token }) {
+export default function TaskList({ tasks, fetchTasks, token, setEditingTask }) {
   const handleDelete = async (id) => {
     await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/tasks/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -19,8 +19,11 @@ export default function TaskList({ tasks, fetchTasks, token }) {
             <h3>{t.title}</h3>
             <p>Status: {t.status}</p>
             {t.started_date && <p>Start: {t.started_date}</p>}
-            {t.assigned_user && <p>Assigned: {t.profiles?.email}</p>}
-            <button onClick={() => handleDelete(t.id)}>Delete</button>
+            {t.profiles?.email && <p>Assigned: {t.profiles.email}</p>}
+            <div className="task-buttons">
+              <button onClick={() => setEditingTask(t)}>Edit</button>
+              <button onClick={() => handleDelete(t.id)}>Delete</button>
+            </div>
           </div>
         ))
       )}
