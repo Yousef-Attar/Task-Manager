@@ -23,7 +23,7 @@ export default function TaskList({ tasks, fetchTasks, token, setEditingTask }) {
             <p>Created by: {t.user_id}</p>
             <p>Created at: {new Date(t.created_at).toLocaleString()}</p>
             <div className="task-buttons">
-              <button onClick={() => setEditingTask(t)}>Edit</button>
+              <button onClick={() => {console.log(t); setEditingTask(t)}}>Edit</button>
               <button onClick={() => handleDelete(t.id)}>Delete</button>
             </div>
           </div>
