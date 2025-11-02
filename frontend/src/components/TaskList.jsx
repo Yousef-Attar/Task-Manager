@@ -20,6 +20,8 @@ export default function TaskList({ tasks, fetchTasks, token, setEditingTask }) {
             <p>Status: {t.status}</p>
             {t.started_date && <p>Start: {t.started_date}</p>}
             {t.profiles?.email && <p>Assigned: {t.profiles.email}</p>}
+            <p>Created by: {t.user_id}</p>
+            <p>Created at: {new Date(t.created_at).toLocaleString()}</p>
             <div className="task-buttons">
               <button onClick={() => setEditingTask(t)}>Edit</button>
               <button onClick={() => handleDelete(t.id)}>Delete</button>
