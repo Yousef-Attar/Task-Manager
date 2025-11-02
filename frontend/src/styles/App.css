@@ -8,10 +8,11 @@ body {
 .header {
   background: #007bff;
   color: white;
-  padding: 15px 30px;
+  padding: 1em 2em;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  gap: 2em;
 }
 
 .header button {
@@ -19,12 +20,19 @@ body {
   color: #007bff;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 0.5em 0.7em;
   cursor: pointer;
+}
+.header-left{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }
 
 .filter-bar {
-  margin: 20px;
+  margin: 1.25em;
   display: flex;
   gap: 10px;
 }
@@ -33,15 +41,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 20px;
+  margin: 1.25em;
   background: #fff;
-  padding: 10px;
+  padding: 0.65em;
   border-radius: 10px;
 }
 
 .task-form input,
 .task-form select {
-  padding: 8px;
+  padding: 0.55em;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
@@ -50,27 +58,27 @@ body {
   background: #007bff;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 0.55em;
+  padding: 0.55em 0.7em;
   cursor: pointer;
 }
 
 .task-list {
   display: grid;
   gap: 15px;
-  margin: 20px;
+  margin: 1.25em;
 }
 
 .task-card {
   background: white;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 0.65em;
+  padding: 1em;
 }
 .task-buttons {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 0.6em;
 }
 
 .task-buttons button {
@@ -78,7 +86,7 @@ body {
   color: white;
   border: none;
   border-radius: 6px;
-  padding: 6px 10px;
+  padding: 0.4em 0.65em;
   cursor: pointer;
 }
 
@@ -91,7 +99,7 @@ body {
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 0.55em 0.7em;
   cursor: pointer;
 }
 

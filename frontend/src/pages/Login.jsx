@@ -1,25 +1,24 @@
-import { useState } from "react";
-import { supabase } from "../supabaseClient";
-import "../styles/Auth.css";
+import { useState } from "react"
+import { supabase } from "../supabaseClient"
+import "../styles/Auth.css"
 
 export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" })
+  const [error, setError] = useState("")
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    const { email, password } = form;
+    e.preventDefault()
+    setError("")
+    const { email, password } = form
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
-    });
-    if (error) setError(error.message);
-  };
+    })
+    if (error) setError(error.message)}
 
   return (
     <div className="auth-container">
@@ -46,5 +45,4 @@ export default function Login() {
         Don’t have an account? <a href="/register">Register</a>
       </p>
     </div>
-  );
-}
+  )}

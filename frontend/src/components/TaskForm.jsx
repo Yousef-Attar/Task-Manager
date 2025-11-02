@@ -10,7 +10,6 @@ export default function TaskForm({ fetchTasks, users, token, editingTask, setEdi
     assigned_user: "",
   });
 
-  // If editing, pre-fill the form with the task data
   useEffect(() => {
     if (editingTask) {
       setForm({
@@ -32,14 +31,12 @@ export default function TaskForm({ fetchTasks, users, token, editingTask, setEdi
     e.preventDefault();
 
     if (editingTask) {
-      // Update existing task
       await axios.put(
         `${import.meta.env.VITE_API_BASE_URL}/tasks/${editingTask.id}`,
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
     } else {
-      // Create new task
       await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/tasks`,
         form,
@@ -47,7 +44,6 @@ export default function TaskForm({ fetchTasks, users, token, editingTask, setEdi
       );
     }
 
-    // Reset form
     setForm({ title: "", status: "todo", started_date: "", assigned_user: "" });
     setEditingTask(null);
     fetchTasks();
@@ -93,8 +89,7 @@ export default function TaskForm({ fetchTasks, users, token, editingTask, setEdi
         <button
           type="button"
           className="cancel-btn"
-          onClick={() => setEditingTask(null)}
-        >
+          onClick={() => setEditingTask(null)}>
           Cancel
         </button>
       )}

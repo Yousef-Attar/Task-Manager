@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { supabase } from "../supabaseClient";
-import "../styles/Auth.css";
+import { useState } from "react"
+import { supabase } from "../supabaseClient"
+import "../styles/Auth.css"
 
 export default function Register() {
-  const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" })
+  const [error, setError] = useState("")
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    const { email, password } = form;
-    const { error } = await supabase.auth.signUp({ email, password });
+    e.preventDefault()
+    setError("")
+    const { email, password } = form
+    const { error } = await supabase.auth.signUp({ email, password })
     if (error) setError(error.message);
-    else alert("Registration successful! Please check your email.");
-  };
+    else alert("Registration successful! Please check your email.")
+  }
 
   return (
     <div className="auth-container">
@@ -44,5 +44,4 @@ export default function Register() {
         Already have an account? <a href="/login">Login</a>
       </p>
     </div>
-  );
-}
+  )}

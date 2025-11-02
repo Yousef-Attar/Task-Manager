@@ -1,38 +1,36 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { supabase } from "../supabaseClient";
-import Header from "../components/Header";
-import TaskForm from "../components/TaskForm";
-import TaskList from "../components/TaskList";
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { supabase } from "../supabaseClient"
+import Header from "../components/Header"
+import TaskForm from "../components/TaskForm"
+import TaskList from "../components/TaskList"
 
 export default function Dashboard({ session }) {
-  const [tasks, setTasks] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [statusFilter, setStatusFilter] = useState("");
-  const [editingTask, setEditingTask] = useState(null);
-  const token = session.access_token;
+  const [tasks, setTasks] = useState([])
+  const [users, setUsers] = useState([])
+  const [statusFilter, setStatusFilter] = useState("")
+  const [editingTask, setEditingTask] = useState(null)
+  const token = session.access_token
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL;
+  const API_BASE = import.meta.env.VITE_API_BASE_URL
 
   const fetchTasks = async () => {
     const { data } = await axios.get(`${API_BASE}/tasks`, {
       headers: { Authorization: `Bearer ${token}` },
       params: statusFilter ? { status: statusFilter } : {},
-    });
-    setTasks(data);
-  };
+    })
+    setTasks(data)}
 
   const fetchUsers = async () => {
     const { data } = await axios.get(`${API_BASE}/users`, {
       headers: { Authorization: `Bearer ${token}` },
-    });
-    setUsers(data);
-  };
+    })
+    setUsers(data)}
 
   useEffect(() => {
     fetchTasks();
     fetchUsers();
-  }, [statusFilter]);
+  }, [statusFilter])
 
   return (
     <div>
@@ -55,7 +53,6 @@ export default function Dashboard({ session }) {
         editingTask={editingTask}
         setEditingTask={setEditingTask}
       />
-
       <TaskList
         tasks={tasks}
         fetchTasks={fetchTasks}
@@ -63,5 +60,4 @@ export default function Dashboard({ session }) {
         setEditingTask={setEditingTask}
       />
     </div>
-  );
-}
+  )}

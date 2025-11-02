@@ -1,17 +1,22 @@
 .auth-container {
   max-width: 350px;
-  margin: 80px auto;
-  padding: 20px;
+  margin: 2em auto;
+  padding: 1.5em;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 12px;
   background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .auth-container input {
   width: 90%;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 0.6em 0;
+  padding: 0.6em;
   border: 1px solid #aaa;
   border-radius: 8px;
 }
@@ -20,7 +25,7 @@
   background: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 0.6em 1.2em;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -31,5 +36,5 @@
 
 .error {
   color: red;
-  font-size: 14px;
+  font-size: 1rem;
 }

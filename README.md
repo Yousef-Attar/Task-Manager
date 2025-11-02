@@ -67,7 +67,7 @@ VITE_API_BASE_URL=https://your-backend.onrender.com/api
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/task-manager.git
+git clone https://github.com/Yousef-Attar/task-manager.git
 cd task-manager
 2. Backend setup
 bash
@@ -127,6 +127,6 @@ The backend verifies this token via middleware before allowing access.
 
 Yousef Attar
 Frontend Developer & Robotics Teacher
-📧 [Your Email Here]
+📧 yousefattar961@gmail.com
 🔗 http://www.linkedin.com/in/yousef-attar-961leb
 🔗 https://myportfolioforfrontend.netlify.app/
