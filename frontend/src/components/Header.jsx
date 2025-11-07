@@ -3,8 +3,8 @@ import "../styles/App.css";
 
 export default function Header({ session }) {
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-  };
+    await supabase.auth.signOut()
+  }
   return (
     <header className="header">
       <h2>Task Manager</h2>
@@ -13,5 +13,5 @@ export default function Header({ session }) {
         <button onClick={handleLogout}>Logout</button>
       </div>
     </header>
-  );
+  )
 }

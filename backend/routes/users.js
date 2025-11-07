@@ -4,12 +4,9 @@ import { verifyUser } from "../middleware/verifyUser.js"
 
 const router = express.Router()
 
-// Get all users (for assignment)
+// Get all users (for assignment) : this route '/api/users' return all the users from the users table.
 router.get("/", verifyUser, async (req, res) => {
-  const { data, error } = await supabase
-    .from("profiles")
-    .select("id, email")
-    .order("email")
+  const { data, error } = await supabase.from("profiles").select("id, email").order("email")
 
   if (error) return res.status(400).json({ message: error.message })
   res.json(data)
